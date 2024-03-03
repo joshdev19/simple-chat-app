@@ -1,0 +1,1393 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgb(59, 59, 59);
+  border-radius: 50em;
+}
+@keyframes clicked {
+  0% {
+    transform: scale(.95);
+  }
+  100% {
+    transform: none;
+  }
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background: rgba(9,9,9);
+  color: rgb(206, 206, 206);
+}
+
+button, input, textarea {
+  font-size: inherit;
+  resize: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input, textarea {
+  padding: 1em;
+  width: 100%;
+}
+
+.contents-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: rgba(9,9,9);
+}
+
+.user-wrapper,
+.form {
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgb(34 34 34);
+  border-radius: 20px;
+  margin: 1em auto;
+  overflow: hidden;
+}
+
+.form {
+  width: 450px;
+}
+
+/* login */
+.form-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  height: auto;
+  padding: 1em 2em;
+  background: linear-gradient(to bottom right, rgb(58 58 58), rgb(5 5 5), rgb(40 40 40));
+}
+.form small {
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  color: rgb(32 225 32);
+}
+.form h2 {
+  text-align: center;
+  padding: 1em 0;
+}
+.form a {
+  text-align: center;
+  display: block;
+  color: white;
+  margin-bottom: 1em;
+}
+.form .label-wrapper {
+  margin: 1em 0;
+}
+.form .label-wrapper input {
+  border-radius: 5px;
+  background: #2b2b2b;
+  color: white;
+  transition: .2s ease-in-out;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+}
+.form .label-wrapper .password-wrapper {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.form .label-wrapper .password-wrapper button {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  margin-top: -5px;
+  right: 1em;
+  width: 25px;
+  height:25px;
+  background: url('../images/eye-icon/eye-c-w.png') no-repeat center;
+  background-size: cover;
+  border: none;
+}
+.form .label-wrapper .password-wrapper button.open {
+  background: url('../images/eye-icon/eye-o-w.png') no-repeat center;
+  background-size: cover;
+}
+.form .label-wrapper input.green {
+  border: 1px solid green;
+}
+.form .label-wrapper input.red {
+  border: 1px solid red;
+}
+.form .label-wrapper input.orange {
+  border: 1px solid orange;
+}
+.form .label-wrapper input:read-only {
+  background: #1b1b1b;
+}
+.form .label-wrapper span {
+  padding-left: 10px;
+  font-size: 15px;
+  color: white;
+  display: none;
+}
+.form .label-wrapper span.show {
+  display: block;
+}
+.form .label-wrapper span.red {color: red;}
+.form .label-wrapper span.orange {color: orange;}
+.form input:focus {
+  background: #3b3b3b;
+  border: 1px solid rgb(158, 158, 158);
+}
+.form button {
+  padding: 1em 2em;
+  border-radius: 5px;
+  display: block;
+  margin: 1em auto;
+  font-weight: bold;
+  background: linear-gradient(to bottom right, #5758a8, #3f41b5, #4041b1);
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid #4748a3;
+}
+.form button:active {
+  background: #33347e;
+  animation: clicked .1s ease-in-out 1;
+}
+.form button:disabled {
+  background: #212131;
+}
+
+/* User Wrapper */
+.user-wrapper .header,
+.user-wrapper .contacts-wrapper .user,
+.user .send-wrapper form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-wrapper .header {
+  width: 100%;
+  padding: 1em;
+  background: linear-gradient(to bottom right, rgb(65 65 65), rgb(9 9 9), rgb(47 47 47));
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.user-wrapper .header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50em;;
+}
+
+.user-wrapper .header .content h3 {
+  text-transform: capitalize;
+}
+
+.user-wrapper .header small {
+  display: block;
+  text-align: left;
+}
+
+.user-wrapper .header .logoutButton,
+.user-wrapper .header .back {
+  padding: .5em 1em;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid rgb(170, 170, 170);
+}
+.user-wrapper .header .logoutButton:active,
+.user-wrapper .header .back:active {
+  background: gray;
+  animation: clicked .1s ease-in-out 1;
+}
+
+.user-wrapper .header .logoutButton {
+  background: url('../images/logout.webp') no-repeat center;
+  background-size: cover;
+  border: none;
+  width: 23px;
+  height: 40px;
+  margin-right: 5px;
+  transition: .1s ease-in-out;
+}
+.user-wrapper .header .logoutButton:hover {
+  transform: scale(.95);
+  background: url('../images/logout-hovered.webp') no-repeat center;
+  background-size: cover;
+}
+.user-wrapper .header .logoutButton:active {
+  transform: scale(1.1);
+  background: url('../images/logout-clicked.webp') no-repeat center;
+  background-size: cover;
+}
+
+.user-wrapper .header .back {
+  background: url('../images/back.webp') no-repeat center;
+  background-size: cover;
+  border: none;
+  width: 23px;
+  height: 40px;
+  margin-right: 10px;
+  transition: .1s ease-in-out;
+}
+.user-wrapper .header .back:hover {
+  transform: scale(.95);
+  background: url('../images/back-hovered.webp') no-repeat center;
+  background-size: cover;
+}
+
+.user-wrapper .contacts-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+.user-wrapper .contacts-wrapper::-webkit-scrollbar-thumb {
+  background: rgb(59, 59, 59);
+  border-radius: 50em;
+}
+.user-wrapper .contacts-wrapper {
+  padding: 1em;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.user-wrapper .contacts-wrapper .user {
+  margin: 1em auto;
+  width: 450px;
+  padding: 1em;
+  border-radius: 10px;
+  outline: 1px solid rgb(218, 218, 218);background: linear-gradient(to bottom right, rgb(20, 20, 20), rgb(9 9 9), rgb(19, 19, 19));
+  color: inherit;
+}
+.user-wrapper .contacts-wrapper .user:hover {
+  background: #686997;
+}
+
+.user-wrapper .contacts-wrapper .user .text-wrapper {
+  width: 300px;
+  height: auto;
+  overflow: hidden;
+}
+
+.user-wrapper .contacts-wrapper .user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50em;
+}
+
+.user-wrapper .contacts-wrapper .user .indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50em;
+}
+
+.user-wrapper .contacts-wrapper .user .indicator.green {
+  background: green;
+}
+.user-wrapper .contacts-wrapper .user .indicator.gray {
+  background: rgb(104, 104, 104);
+}
+
+/* Chat */
+
+.chat-wrapper {
+  height: 616px;
+}
+
+.user-wrapper .messages-wrapper {
+  height: 350px;
+  color: white;
+  background: linear-gradient(to bottom right, rgb(20 20 20 / 55%), rgb(3 3 3), rgb(19 19 19 / 72%));
+  scroll-behavior: smooth;
+}
+
+.user-wrapper .messages-wrapper .outer-message,
+.user-wrapper .messages-wrapper .inner-message {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.user-wrapper .messages-wrapper .outer-message {
+  justify-content: start;
+}
+.user-wrapper .messages-wrapper .inner-message {
+  justify-content: end;
+}
+
+.user-wrapper .messages-wrapper .outer-message p,
+.user-wrapper .messages-wrapper .inner-message p {
+  max-width: 209px;
+  padding: .7em;
+  word-wrap: break-word;
+}
+
+.user-wrapper .messages-wrapper .outer-message p {
+  text-align: left;
+  background: #292929;
+  background: linear-gradient(to bottom right, #2e2e2e, #272727, #2e2e2e);
+  border-radius: 10px 10px 10px 0px;
+}
+
+.user-wrapper .messages-wrapper .inner-message p {
+  text-align: left;
+  background: linear-gradient(to bottom right, #6d6ece, #6263c9, #5557af);
+  border-radius: 10px 10px 0px 10px;
+}
+
+.user-wrapper .send-wrapper {
+  border-top: 1px solid white;
+  background: linear-gradient(to bottom right, rgb(39 39 39), rgb(9 9 9), rgb(30 29 29));
+  overflow: hidden;
+}
+
+.user-wrapper .send-wrapper form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: none;
+  padding: 1em 0;
+  height: auto;
+}
+
+.user-wrapper .send-wrapper form textarea {
+  width: 79%;
+  transition: .5s ease-in-out;
+  height: 149px;
+  border-radius: 10px;
+  background: rgb(26, 26, 26);
+  color: white;
+  transition: .2s ease-in-out;
+  border: 1px solid gray;
+}
+.user-wrapper .send-wrapper form textarea:focus {
+  background: #2e2e2e;
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.user-wrapper .send-wrapper form button {
+  border: 1px solid #4c4d97;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  background: url('../images/send.webp') no-repeat center;
+  background-size: contain;
+  background-color: #5c5ed0;
+  align-self: baseline;
+  width: 52px;
+  height: 40px;
+  margin-right: 5px;
+}
+.user-wrapper .send-wrapper form button:active {
+  background: url('../images/send.webp') no-repeat center;
+  background-size: contain;
+  background-color: #6567e7;
+  animation: clicked .1s ease-in-out 1;
+}
+.user-wrapper .send-wrapper form button:disabled {
+  background: url('../images/send.webp') no-repeat center;
+  background-size: contain;
+  background-color: #33347e;
+}
+
+/* 
+  - 1368 x 912 LANDSCAPE MODE;
+  - Surface Pro 7
+*/
+@media screen and (max-width: 1368px) and (max-height: 912px) and (orientation: landscape) {
+ 
+}
+
+/* 
+  - 1280 x 800 LANDSCAPE MODE;
+  - Kindle Fire HDX
+  - Nest Hub Max 1280 x 800 landscape
+*/
+@media screen and (max-width: 1280px) and (max-height: 800px) and (orientation: landscape) {
+  
+}
+
+/* 
+- 820 x 1180 landscape
+- Ipad Air
+*/
+@media screen and (max-width: 1180px) and (max-height: 820px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 1138 x 712 LANDSCAPE MODE;
+  - Galaxy Tab S4
+*/
+@media screen and (max-width: 1138px) and (max-height: 712px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 1024 x 600;
+  - BlackBerry Playbook
+  - Nest Hub 1024 x 600 landscape
+  - Ipad Pro
+*/
+@media screen and (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
+  
+}
+
+@media screen and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 600 x 960
+  - Nexus 7
+*/
+@media screen and (max-width: 960px) and (max-height: 600px) and (orientation: landscape) {
+ 
+}
+
+
+/* 
+  - 915 x 412 landscape
+  - Samsung Galaxy S20 Ultra
+*/
+@media screen and (max-width: 915px) and (max-height: 412px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 912 x 1368
+  - Surface Pro 7
+*/
+@media screen and (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {
+  
+}
+
+/* 
+  - 896 x 414 LANDSCAPE MODE;
+  - iPhone XR 
+*/
+@media screen and (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
+  
+}
+
+/* 
+- 854 x 480 LANDSCAPE MODE;
+- Nokia N9
+*/
+@media screen and (max-width: 854px) and (max-height: 480px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 844 x 390 landscape
+  - iPhone 12 Pro
+*/
+@media screen and (max-width: 844px) and (max-height: 390px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 851 x 393 landscape
+  - Pixel 5
+*/
+@media screen and (max-width: 851px) and (max-height: 393px) and (orientation: landscape) {
+  
+}
+
+/* 
+- 823 x 412 LandScape Mode
+- Moto G Power
+*/
+@media screen and (max-width: 823px) and (max-height: 412px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 820 x 1180
+  - iPad Air
+*/
+@media screen and (max-width: 820px) and (max-height: 1180px) and (orientation: portrait) {
+  
+}
+
+/* 
+  - 800 x 1280;
+  - Kindle Fire HDX
+  - Nexus 10
+*/
+@media screen and (max-width: 800px) and (max-height: 1280px) and (orientation: portrait) {
+  
+}
+
+/* 
+  - 786 x 393 Landscape mode
+  - pixel 3
+*/
+
+@media screen and (max-width: 786px)  and (max-height: 393px) and (orientation: landscape) {
+  
+}
+
+/* 
+- 768 x 1024
+- Ipad Mini
+- Ipad
+*/
+
+@media screen and (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
+  
+}
+
+/* 
+- 745 x 353 LANDSCAPE MODE;
+- pixel 4;
+*/
+@media screen and (max-width: 745px)  and (max-height: 353px) and (orientation: landscape) {
+  
+}
+
+/* 
+- 736 x 414 LANDSCAPE MODE;
+- iPhone 5/6/7/8;
+*/
+@media screen and (max-width: 736px) and (max-height: 414px) and (orientation: landscape) {
+  
+}
+
+/* 
+- 740 x 360 LANDSCAPE MODE;
+- Galaxy S8;
+*/
+@media screen and (max-width: 740px) and (max-height: 360px) and (orientation: landscape) {
+  
+}
+
+/* 
+ - 732 x 412 LANDSCAPE MODE;
+ - Nexus 5x ISSUE
+*/
+@media screen and (max-width: 732px)  and (max-height: 412px) and (orientation: landscape) {
+  
+}
+
+/* 
+ - 731 x 411 LANDSCAPE MODE;
+ - Pixel 2
+*/
+@media screen and (max-width: 731px)  and (max-height: 411px) and (orientation: landscape) {
+  
+}
+
+/* 
+ - 720 x 540 LANDSCAPE MODE;
+ - Galaxy S8;
+*/
+@media screen and (max-width: 720px) and (max-height: 540px) and (orientation: landscape) {
+  
+}
+
+/* 
+ - 712 x 1138;
+ - Galaxy Tab S4;
+*/
+@media screen and (max-width: 712px) and (max-height: 1138px) and (orientation: portrait) {
+  
+}
+
+/* 
+ - 667 x 375;
+ - iPhone se;
+*/
+@media screen and (max-width: 667px) and (max-height: 375px) and (orientation: landscape) {
+  .form-wrapper {
+    height: auto;
+    padding: 1.5em 0;
+  }
+  .contents-wrapper {
+    padding: 1em 0;
+    height: auto;
+  }
+}
+/* 
+ - 658 x 320 LANDSCAPE MODE;
+ - Galaxy S9+;
+*/
+@media screen and (max-width: 658px) and (max-height: 320px) and (orientation: landscape) {
+  .form-wrapper {
+    height: auto;
+    padding: 1.5em 0;
+  }
+  .contents-wrapper {
+    padding: 1em 0;
+    height: auto;
+  }
+}
+
+/* 
+  - 653 x 280px
+  - Galaxy Fold
+*/
+@media screen and (max-width: 653px) and (max-height: 280px) and (orientation: landscape) {
+ 
+}
+
+/* 
+ - 640 x 360 LANDSCAPE MODE;
+ - BlackBerry;
+ - Microsoft Lumia 550
+*/
+@media screen and (max-width: 640px) and (max-height: 384px) and (orientation: landscape) {
+  
+}
+
+@media screen and (max-width: 640px) and (max-height: 360px) and (orientation: landscape) {
+ 
+}
+
+
+/* 
+  - 600 x 1024;
+  - BlackBerry Playbook
+  - Nexus 7 600 x 960
+*/
+@media screen and (max-width: 600px) and (max-height: 1024px) and (orientation: portrait) {
+  
+}
+@media screen and (max-width: 600px) and (max-height: 960px) and (orientation: portrait) {
+  
+}
+
+/* 
+  - 568 x 320 landscape
+  - iPhone S/SE
+*/
+@media screen and (max-width: 568px) and (max-height: 320px) and (orientation: landscape) {
+  
+}
+
+/* 
+  - 540 x 720
+  - Surface Duo
+*/
+@media screen and (max-width: 540px) and (max-height: 720px) and (orientation: portrait) {
+  .form {
+    width: 95%;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 95%;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+  - 533 x 320 LANDSCAPE MODE;
+  - Nokia Lumia 520
+*/
+@media screen and (max-width: 533px)  and (max-height: 320px) and (orientation: landscape) {
+  .form {
+    width: 95%;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 95%;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+  - 480 x 854;
+  - Nokia N9
+*/
+@media screen and (max-width: 480px) and (max-height: 854px) and (orientation: portrait) {
+  .contents-wrapper {
+    display: block;
+  }
+  .form {
+    padding: 1em 1.2em;
+    border: none;
+  }
+  .user-wrapper {
+    width: 100%;
+    border: none;
+    height: auto;
+    margin: 0;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+  .user-wrapper .messages-wrapper {
+    width: 100%;
+    height: 480px;
+    max-height: none;
+    overflow: scroll;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .user-wrapper .send-wrapper form {
+    margin: 1em 0;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 480px) and (max-height: 320px) and (orientation: landscape) {
+  .form {
+    width: 95%;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+- 414 x 896;
+- iPhone XR
+*/
+@media screen and (max-width: 414px) and (max-height: 896px) and (orientation: portrait) {
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 414px) and (max-height: 736px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+
+/* 
+- 412 x 915;
+- Samsung Galaxy S20 Ultra
+*/
+@media screen and (max-width: 412px) and (max-height: 915px) and (orientation: portrait) {
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 412px) and (max-height: 914px) and (orientation: portrait) {
+ 
+}
+
+/* 
+  - 412 x 732;
+  - Nexus 5X ISSUE
+  - Nexus 6
+  - Nexus 6P
+  - Samsung Galaxy S20 Ultra 412 x 915
+  - Samsung Galaxy A51/71 412 x 914
+*/
+@media screen and (max-width: 412px) and (max-height: 823px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+/* 
+  - 411 x 731
+  - Pixel 2
+ */
+@media screen and (max-width: 411px) and (max-height: 731px) and (orientation: portrait) {
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+- 411 x 731;
+- Pixel 2
+- Pixel 2 XL
+*/
+
+/* 
+- 393 x 786;
+- Pixel 3
+- Pixel 3 XL
+- Pixel 5 393 x 851
+*/
+@media screen and (max-width: 393px) and (max-height: 786px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 393px) and (max-height: 851px) and (orientation: portrait) {
+ .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+- 390 x 844;
+- iPhone 12 Pro
+*/
+@media screen and (max-width: 390px) and (max-height: 844px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+  - 384 x 640;
+  - LG Optimus L70,
+  - Nexus 4
+*/
+@media screen and (max-width: 384px) and (max-height: 640px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+  - 375 x 667;
+  - iPhone SE
+  - iPhone 6/7/8
+  - iPhone X
+*/
+@media screen and (max-width: 375px) and (max-height: 667px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+  - 360 x 640px;
+  - BlackBerry Z30,
+  - Galaxy Note 3,
+  - Galaxy Note II,
+  - Galaxy S III
+  - Galaxy S8 360 x 740
+  - Microsoft Lumia 950
+  - Moto G4
+  - Nexus 5
+  - Galaxy S8+ 360 x 740
+  - Galaxy S5
+*/
+@media screen and (max-width: 360px) and (max-height: 740px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 360px) and (max-height: 640px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+  - 353 x 745;
+  - Pixel 4
+*/
+@media screen and (max-width: 353px) and (max-height: 745px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper .header img {
+    display: none;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+/* 
+  - 320;
+  - Galaxy S9+ 320 x 658,
+  - Nokia Lumia 520 320 x 533
+  - iPhone 4 320 x 480;
+  - iPhone 5/SE 320 x 568;
+*/
+@media screen and (max-width: 320px) and (max-height: 658px) and (orientation: portrait) {
+ .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .user-wrapper .send-wrapper form textarea {
+    width: 90%;
+  }
+  .user-wrapper .send-wrapper form button {
+    margin: 1em auto;
+  }
+}
+
+@media screen and (max-width: 320px) and (max-height: 568px) and (orientation: portrait) {
+  .form {
+    width: 100%;
+    border-radius: 0px;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 320px) and (max-height: 533px) and (orientation: portrait) {
+  .form {
+    width: 95%;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 95%;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 320px) and (max-height: 480px) and (orientation: portrait) {
+  .form {
+    width: 95%;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 95%;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 320px) and (max-height: 240px) and (orientation: landscape) {
+  .form {
+    width: 95%;
+    padding: 1em 1.2em;
+  }
+  .user-wrapper {
+    width: 95%;
+  }
+  .user-wrapper .contacts-wrapper {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user {
+    width: 100%;
+  }
+  .user-wrapper .contacts-wrapper .user .text-wrapper {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .user-wrapper .header .content {
+    width: 100%;
+  }
+  .user-wrapper .header .content h3 {
+    text-align: center;
+  }
+  .user-wrapper .header button {
+    margin: 1em auto 0;
+  }
+}
+
+/* 
+- 280 x 653
+- Galaxy Fold
+*/
+
+@media screen and (max-width: 280px) and (max-height: 653px) and (orientation: portrait) {
+   .user-wrapper .header .content {
+    width: 100%;
+    text-align: center;
+   }
+}
+
+/* 
+- 240 x 320;
+- JioPhone 2
+*/
+@media screen and (max-width: 240px) and (max-height: 320px) and (orientation: portrait) {
+   
+}
